@@ -31,7 +31,10 @@
       "favicon": "./assets/favicon.png"
     },
     "extra": {
-      "eas": {}
-    }
+      "eas": {
+        "projectId": "90262221-2745-4c0d-8c6e-e4db931ae873"
+      }
+    },
+    "owner": "dasimems"
   }
 }

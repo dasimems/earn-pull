@@ -53,7 +53,6 @@ const GettingStarted = () => {
           </Text>
           <Text
             style={{
-              color: whiteColor.default,
               paddingHorizontal: 20,
               textAlign: "center",
               fontSize: 15,
