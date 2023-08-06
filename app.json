@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "2 Pay",
-    "slug": "2-pay",
+    "slug": "2pay",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -16,11 +16,11 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.2pay.earn",
+      "bundleIdentifier": "com.twopay.earn",
       "buildNumber": "1.0.0"
     },
     "android": {
-      "package": "com.trust.adder",
+      "package": "com.twopay.earn",
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
@@ -31,9 +31,7 @@
       "favicon": "./assets/favicon.png"
     },
     "extra": {
-      "eas": {
-        "projectId": "5fd39d17-f982-48ed-a8d6-a7428926324a"
-      }
+      "eas": {}
     }
   }
 }
