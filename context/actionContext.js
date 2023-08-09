@@ -2,7 +2,7 @@ import React, {
   createContext,
   useCallback,
   useContext,
-  useReducer,
+  useReducer
 } from "react";
 import { actionInitialValue, actionReducer } from "../reducer";
 import LottieView from "lottie-react-native";
@@ -17,7 +17,7 @@ import {
   SET_IMAGE_SELECTED,
   SET_MODAL_CONTENT,
   SET_MODAL_HEIGHT,
-  SET_MODAL_STYLES,
+  SET_MODAL_STYLES
 } from "../data/_actions";
 import { Text, View } from "react-native";
 import { poppins } from "../assets/fonts";
@@ -28,14 +28,14 @@ const ActionContext = createContext({
   closeModal: () => {},
   setModalContent: () => {},
   setModalHeight: () => {},
-  setModalStyle: () => {},
+  setModalStyle: () => {}
 });
 
 export const ActionProvider = ({ children }) => {
   const [state, dispatch] = useReducer(actionReducer, actionInitialValue);
 
-  const openModal = (data) => {
-    var { content, height, styles } = data || {};
+  const openModal = data => {
+    var { content, height, styles, text } = data || {};
 
     if (!content) {
       content = (
@@ -45,7 +45,7 @@ export const ActionProvider = ({ children }) => {
             height: "100%",
             alignItems: "center",
             justifyContent: "center",
-            padding,
+            padding
           }}
         >
           <LottieView
@@ -54,8 +54,15 @@ export const ActionProvider = ({ children }) => {
             source={SomethingWentWrongLottieFile}
           />
 
-          <Text style={{ marginTop: 10, fontFamily: poppins.regular.default }}>
-            Something Went Wrong
+          <Text
+            style={{
+              marginTop: 10,
+              fontFamily: poppins.bold.default,
+              textAlign: "center",
+              fontSize: 16
+            }}
+          >
+            {text ? text : "Something Went Wrong"}
           </Text>
         </View>
       );
@@ -76,16 +83,16 @@ export const ActionProvider = ({ children }) => {
     dispatch({ type: CLOSE_MODAL });
   };
 
-  const setModalContent = (payload) => {
+  const setModalContent = payload => {
     if (payload) {
       dispatch({
         type: SET_MODAL_CONTENT,
-        payload,
+        payload
       });
     }
   };
 
-  const setModalHeight = (height) => {
+  const setModalHeight = height => {
     if (height) {
       dispatch({ type: SET_MODAL_HEIGHT, payload: height });
     }
@@ -93,7 +100,7 @@ export const ActionProvider = ({ children }) => {
 
   const openCamera = () => {
     dispatch({
-      type: OPEN_CAMERA,
+      type: OPEN_CAMERA
     });
   };
 
@@ -101,18 +108,18 @@ export const ActionProvider = ({ children }) => {
     dispatch({ type: CLOSE_CAMERA });
   };
 
-  const setImage = (payload) => {
+  const setImage = payload => {
     dispatch({
       type: SET_IMAGE_SELECTED,
-      payload,
+      payload
     });
   };
 
-  const SetModalStyle = (payload) => {
+  const SetModalStyle = payload => {
     if (payload) {
       dispatch({
         type: SET_MODAL_STYLES,
-        payload,
+        payload
       });
     }
   };
@@ -127,7 +134,7 @@ export const ActionProvider = ({ children }) => {
         setModalHeight,
         SetModalStyle,
         openCamera,
-        closeCamera,
+        closeCamera
       }}
     >
       {children}

@@ -17,10 +17,12 @@ const useLoader = () => {
     });
 
     setTimeout(() => {
-      if (typeof action === "function") {
-        action();
-      }
       closeModal();
+      setTimeout(() => {
+        if (typeof action === "function") {
+          action();
+        }
+      }, 100);
     }, 2000);
   }, []);
 

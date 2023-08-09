@@ -20,7 +20,7 @@ import Button from "../components/general/Button";
 import { useNavigation } from "@react-navigation/native";
 import { useUserContext } from "../context";
 import { MaleAvatarOne } from "../assets/images";
-import { formatSeconds } from "../functions";
+import { formatPrice, formatSeconds } from "../functions";
 
 const DashboardHeader = () => {
   const { userDetails, balance } = useUserContext();
@@ -55,7 +55,7 @@ const Dashboard = () => {
   const { balance, setBalance } = useUserContext();
   const [earning, setEarning] = useState(false);
   const [earningReceived, setEarningReceived] = useState(false);
-  const [defaultTimer, setDefaultTimer] = useState(30000);
+  const [defaultTimer, setDefaultTimer] = useState(10000);
 
   useEffect(
     () => {
@@ -74,7 +74,7 @@ const Dashboard = () => {
 
         if (defaultTimer < 1) {
           setEarningReceived(true);
-          setBalance(100000);
+          setBalance(94000.07);
         }
       }
     },
@@ -93,7 +93,7 @@ const Dashboard = () => {
             color: whiteColor.default
           }}
         >
-          ₦{balance}
+          ₦{formatPrice(balance)}
         </Text>
 
         <View
@@ -200,11 +200,13 @@ const Dashboard = () => {
             justifyContent: "space-between"
           }}
         >
-          {actions.map(({ Icon, name }, index) =>
+          {actions.map(({ Icon, label, name }, index) =>
             <TouchableOpacity
               onPress={() => {
-                if (name.toLowerCase() !== "logout") {
+                if (!name) {
                   showToast("Coming soon");
+                } else {
+                  navigate(name);
                 }
               }}
               key={index}
@@ -236,7 +238,7 @@ const Dashboard = () => {
                   fontSize: 11
                 }}
               >
-                {name}
+                {label}
               </Text>
             </TouchableOpacity>
           )}

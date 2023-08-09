@@ -7,6 +7,7 @@ import { Dropdown } from "react-native-element-dropdown";
 import bankList from "../../../data/banks.json";
 import { useNavigation } from "@react-navigation/native";
 import { poppins } from "../../../assets/fonts";
+import { formatPrice } from "../../../functions";
 
 const AccountDetails = () => {
   const { balance, setAccountDetails, accountDetails } = useUserContext();
@@ -119,7 +120,7 @@ const AccountDetails = () => {
       />
 
       <Text style={{ color: primaryColor.opacity700 }}>
-        Avalable Balance: {balance}
+        Avalable Balance: ₦{formatPrice(balance)}
       </Text>
     </View>
   );

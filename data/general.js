@@ -222,27 +222,28 @@ export const NavNames = {
   ],
   actions = [
     {
-      name: "Buy Data",
+      label: "Buy Data",
       Icon: WifiIcon
     },
     {
-      name: "Buy Airtime",
+      label: "Buy Airtime",
       Icon: PhoneRinging
     },
     {
-      name: "Add Funds",
+      label: "Add Funds",
       Icon: Wallet
     },
     {
-      name: "Transactions",
+      label: "Transactions",
       Icon: TransactionList
     },
     {
-      name: "Transfer",
-      Icon: Transfer
+      label: "Transfer",
+      Icon: Transfer,
+      name: NavNames.Withdrawal.name
     },
     {
-      name: "Logout",
+      label: "Logout",
       Icon: Logout
     }
   ],

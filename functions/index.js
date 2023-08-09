@@ -251,3 +251,103 @@ export const formatSeconds = (sec) => {
   }
   return `${formatedSec}${secType}`;
 };
+
+export function formatPrice(sentPrice) {
+
+  let newPrice = "";
+  let priceDecimal = ""
+
+  if(sentPrice){
+
+    const price = sentPrice?.toString();
+    const priceUnits = price?.split(".");
+    priceDecimal = priceUnits[1] || "";
+    const priceArray = priceUnits[0]?.split("");
+  
+    if (!priceArray) return;
+  
+    for (var i = 0; i < priceArray?.length; i++) {
+      if (priceArray?.length % 3 !== 0) {
+        var remainder = priceArray?.length % 3;
+  
+        if (i <= remainder - 1) {
+          newPrice += priceArray[i];
+        } else {
+          if (i === remainder) {
+            newPrice += `,${priceArray[i]}`;
+          } else {
+            if (i !== 0 && (i - remainder) % 3 === 0) {
+              newPrice += `,${priceArray[i]}`;
+            } else {
+              newPrice += priceArray[i];
+            }
+          }
+        }
+      } else {
+        if (i !== 0 && i % 3 === 0) {
+          newPrice += `,${priceArray[i]}`;
+        } else {
+          newPrice += priceArray[i];
+        }
+      }
+    }
+  }else{
+    newPrice = "0";
+  }
+
+  if(priceDecimal && priceDecimal.length > 0){
+    newPrice +="."
+    newPrice +=priceDecimal
+  }
+  
+
+  return newPrice;
+} //done
+
+export function shuffle(array) {
+  let currentIndex = array.length,
+    randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex !== 0) {
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+
+export function splitName(name) {
+
+  let newName = "";
+  if(name !== undefined){
+    
+    const nameArray = name?.split(" ");
+  
+    // if (!newName) return;
+  
+    for (var i = 0; i < nameArray?.length; i++) {
+
+      if (i < 1) {
+
+        newName += `${nameArray[i].slice(0, 1).toUpperCase()}${nameArray[i].slice(
+          1
+        )}`;
+
+      } else {
+
+        newName += ` ${nameArray[i].slice(0, 1).toUpperCase()}${nameArray[
+          i
+        ].slice(1)}`;
+        
+      }
+    }
+
+  }
+
+  return newName;
+}

@@ -103,7 +103,7 @@ const Activation = () => {
             padding: 20,
             borderWidth: 1,
             borderRadius: 15,
-            borderColor: blackColor.opacity200,
+            borderColor: whiteColor.opacity200,
             paddingBottom: 0
           }}
         >
@@ -122,7 +122,7 @@ const Activation = () => {
             padding: 20,
             borderWidth: 1,
             borderRadius: 15,
-            borderColor: blackColor.opacity200,
+            borderColor: whiteColor.opacity200,
             paddingBottom: 0
           }}
         >

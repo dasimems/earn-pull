@@ -15,14 +15,20 @@ import FormInputField from "../../general/form/FormInputField";
 import { poppins } from "../../../assets/fonts";
 import { X } from "lucide-react-native";
 import { TouchableOpacity } from "react-native";
+import useLoader from "../../../hooks/useLoader";
 
 const showToast = message => {
   ToastAndroid.show(message, ToastAndroid.SHORT);
 };
 
 const ModalContent = ({ onComplete }) => {
-  const { closeModal } = useActionContext();
-  const { setPaymentConfirmed, paymentConfirmed } = useUserContext();
+  const { closeModal, openModal } = useActionContext();
+  const { openLoader } = useLoader();
+  const {
+    setPaymentConfirmed,
+    paymentConfirmed,
+    userDetails
+  } = useUserContext();
   const [account, setAccount] = useState("");
   const accounts = ["8160705552", "7041451734"];
   if (!onComplete || !typeof onComplete === "function") {
@@ -75,9 +81,11 @@ const ModalContent = ({ onComplete }) => {
           //     onComplete();
           //   }, 2000);
           // } else {
-          showToast(
-            "Dear user you have not make any payment. Kindly make payment and get paid"
-          );
+          if (account.length != 10) {
+            showToast("Invalid Account Details");
+          } else {
+            openLoader(()=>{openModal({ text: `sorry ${userDetails?.name}, No payment was found from your bank.` })});
+          }
           // }
         }}
         disabledStyle={{ backgroundColor: primaryColor.opacity300 }}
