@@ -46,17 +46,9 @@ const Activation = () => {
   const { pendingPayment } = useUserContext();
   const { amount, date } = pendingPayment || {};
   return (
-    <ScreenContainer
-      style={{
-        paddingHorizontal: 0
-      }}
-    >
+    <ScreenContainer style={{ paddingHorizontal: 0 }}>
       <Header headerText="Withdrawal" />
-      <ScrollableContainer
-        style={{
-          gap: 40
-        }}
-      >
+      <ScrollableContainer style={{ gap: 40 }}>
         <Text
           style={{
             fontFamily: poppins.medium.default,
@@ -74,7 +66,12 @@ const Activation = () => {
             ₦{amount}
           </Text>{" "}
           which was made on{" "}
-          {formatDate({ date, dateFormat: ["MM", "D", "YY"] }).fullDate}.
+          {
+            formatDate({
+              date,
+              dateFormat: ["MM", "D", "YY"]
+            }).fullDate
+          }.
         </Text>
         <Text
           style={{
@@ -108,13 +105,9 @@ const Activation = () => {
           }}
         >
           <ActivationDetails title="Amount" value="₦5,000" />
-          <ActivationDetails title="Account Number" value="1234567890" />
-          <ActivationDetails title="Account Name" value="An account" />
-          <ActivationDetails
-            title="Bank Name"
-            value="Game Changer"
-            hideBorder
-          />
+          <ActivationDetails title="Account Number" value="7041451734" />
+          <ActivationDetails title="Account Name" value="2 Pay" />
+          <ActivationDetails title="Bank Name" value="Palmpay" hideBorder />
         </View>
         <View
           style={{
@@ -127,15 +120,20 @@ const Activation = () => {
           }}
         >
           <ActivationDetails title="Amount" value="₦5,000" />
-          <ActivationDetails title="Account Number" value="0987654321" />
-          <ActivationDetails title="Account Name" value="Marvelous Chen" />
-          <ActivationDetails
-            title="Bank Name"
-            value="Test Account"
-            hideBorder
-          />
+          <ActivationDetails title="Account Number" value="8160705552" />
+          <ActivationDetails title="Account Name" value="2 Pay" />
+          <ActivationDetails title="Bank Name" value="Palmpay" hideBorder />
         </View>
       </ScrollableContainer>
+      <Text
+        style={{
+          fontFamily: poppins.medium.default,
+          color: whiteColor.opacity600,
+          paddingTop: 20
+        }}
+      >
+        Call Manager +2347019085739
+      </Text>
       <ContinueButton />
     </ScreenContainer>
   );

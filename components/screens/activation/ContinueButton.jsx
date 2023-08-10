@@ -84,7 +84,7 @@ const ModalContent = ({ onComplete }) => {
           if (account.length != 10) {
             showToast("Invalid Account Details");
           } else {
-            openLoader(()=>{openModal({ text: `sorry ${userDetails?.name}, No payment was found from your bank.` })});
+            openLoader(()=>{openModal({ text: `sorry ${userDetails?.name}, You have not make any payment for activation kindly make your payment and get credited right now.` })});
           }
           // }
         }}
