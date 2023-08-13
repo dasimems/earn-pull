@@ -60,8 +60,8 @@ const GettingStarted = () => {
               color: whiteColor.opacity700
             }}
           >
-            Welcome to an exhilarating journey where the boundaries of your
-            potential are shattered, and the path to earning big beckons you.
+            Welcome To The best Earning Site 2Pay , We Are Trusted And Fast In
+            Crediting we Are Here to Help And Support The Interested Once?.
           </Text>
         </View>
       </View>
