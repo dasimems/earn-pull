@@ -84,7 +84,7 @@ const ModalContent = ({ onComplete }) => {
           if (account.length != 10) {
             showToast("Invalid Account Details");
           } else {
-            openLoader(()=>{openModal({ text: `sorry ${userDetails?.name}, You have not make any payment for activation kindly make your payment and get credited right now.` })});
+            openLoader(()=>{openModal({ text: `sorry ${userDetails?.name}, You have not make any payment for activation kindly make your payment and get credited right now.`, action: onComplete })});
           }
           // }
         }}
@@ -100,7 +100,7 @@ const ModalContent = ({ onComplete }) => {
 };
 
 const ContinueButton = () => {
-  const { setAccountDetails, paymentConfirmed } = useUserContext();
+  const { paymentConfirmed } = useUserContext();
   const { openModal } = useActionContext();
   const { navigate } = useNavigation();
 
@@ -108,9 +108,7 @@ const ContinueButton = () => {
     openModal({
       content: (
         <ModalContent
-          onComplete={() => {
-            navigate(NavNames.GettingStarted.name);
-          }}
+          onComplete={openConfirmModal}
         />
       )
     });
@@ -121,7 +119,6 @@ const ContinueButton = () => {
         loaderSize={14}
         // loading={paymentConfirmed}
         onPress={() => {
-          setAccountDetails();
           openConfirmModal();
         }}
         disabledStyle={{ backgroundColor: primaryColor.opacity300 }}

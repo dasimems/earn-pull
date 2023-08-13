@@ -55,7 +55,7 @@ const Dashboard = () => {
   const { balance, setBalance } = useUserContext();
   const [earning, setEarning] = useState(false);
   const [earningReceived, setEarningReceived] = useState(false);
-  const [defaultTimer, setDefaultTimer] = useState(10000);
+  const [defaultTimer, setDefaultTimer] = useState(5000);
 
   useEffect(
     () => {

@@ -21,6 +21,7 @@ import {
 } from "../data/_actions";
 import { Text, View } from "react-native";
 import { poppins } from "../assets/fonts";
+import Button from "../components/general/Button";
 
 const ActionContext = createContext({
   ...actionInitialValue,
@@ -35,7 +36,7 @@ export const ActionProvider = ({ children }) => {
   const [state, dispatch] = useReducer(actionReducer, actionInitialValue);
 
   const openModal = data => {
-    var { content, height, styles, text } = data || {};
+    var { content, height, styles, text, action } = data || {};
 
     if (!content) {
       content = (
@@ -57,13 +58,31 @@ export const ActionProvider = ({ children }) => {
           <Text
             style={{
               marginTop: 10,
-              fontFamily: poppins.bold.default,
+              fontFamily: poppins.regular.default,
               textAlign: "center",
               fontSize: 16
             }}
           >
             {text ? text : "Something Went Wrong"}
           </Text>
+
+          {action &&
+            typeof action === "function" &&
+            <Button
+              onPress={action}
+              style={{
+                marginTop: 10
+              }}
+            >
+              <Text
+                style={{
+                  fontFamily: poppins.medium.default,
+                  textAlign: "center"
+                }}
+              >
+                Ok
+              </Text>
+            </Button>}
         </View>
       );
     }

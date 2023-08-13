@@ -124,16 +124,17 @@ const Activation = () => {
           <ActivationDetails title="Account Name" value="2 Pay" />
           <ActivationDetails title="Bank Name" value="Palmpay" hideBorder />
         </View>
+        <Text
+          style={{
+            fontFamily: poppins.medium.default,
+            color: whiteColor.opacity600,
+            paddingTop: 20,
+            textAlign: "center"
+          }}
+        >
+          Call Manager +2347019085739
+        </Text>
       </ScrollableContainer>
-      <Text
-        style={{
-          fontFamily: poppins.medium.default,
-          color: whiteColor.opacity600,
-          paddingTop: 20
-        }}
-      >
-        Call Manager +2347019085739
-      </Text>
       <ContinueButton />
     </ScreenContainer>
   );
