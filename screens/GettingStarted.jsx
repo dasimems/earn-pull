@@ -7,7 +7,7 @@ import { blackColor, primaryColor, whiteColor } from "../assets/colors";
 import { poppins } from "../assets/fonts";
 import { GettingStartedImage } from "../assets/images";
 import { useNavigation } from "@react-navigation/native";
-import { NavNames } from "../data/general";
+import { NavNames, measurements } from "../data/general";
 
 const GettingStarted = () => {
   const { navigate } = useNavigation();
@@ -17,44 +17,24 @@ const GettingStarted = () => {
         <View
           style={{
             flex: 1,
-            // borderBottomWidth: 1,
-            // borderBottomColor: primaryColor.default,
-            // borderRightWidth: 1,
-            // borderRightColor: primaryColor.default,
-            borderBottomRightRadius: 300,
-            overflow: "hidden"
-          }}
-        >
-          <Image
-            source={GettingStartedImage}
-            style={{
-              resizeMode: "cover",
-              width: "100%",
-              height: "100%"
-            }}
-          />
-        </View>
-        <View
-          style={{
             gap: 20,
-            paddingVertical: 60
+            paddingVertical: 60,
+            justifyContent: "flex-end"
           }}
         >
           <Text
             style={{
               color: whiteColor.default,
-              fontSize: 30,
-              fontFamily: poppins.bold.default,
-              paddingHorizontal: 20,
-              textAlign: "center"
+              fontSize: measurements.windowWidth * 0.15,
+              fontFamily: poppins.regular.default,
+              paddingHorizontal: 20
             }}
           >
-            It is time to start earning big
+            Earning Just Got Easier
           </Text>
           <Text
             style={{
               paddingHorizontal: 20,
-              textAlign: "center",
               fontSize: 15,
               fontFamily: poppins.regular.default,
               color: whiteColor.opacity700
@@ -64,8 +44,21 @@ const GettingStarted = () => {
             Crediting we Are Here to Help And Support The Interested Once?.
           </Text>
         </View>
+
+        <View
+          style={{
+            borderTopWidth: 1,
+            borderColor: whiteColor.opacity300,
+            marginHorizontal: 20
+          }}
+        ></View>
       </View>
-      <View style={{ paddingHorizontal: 20, paddingBottom: 20 }}>
+      <View
+        style={{
+          paddingHorizontal: 20,
+          paddingVertical: 20
+        }}
+      >
         <Button
           style={{
             flexDirection: "row",
