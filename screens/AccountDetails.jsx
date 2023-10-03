@@ -24,7 +24,7 @@ const AccountDetails = () => {
     userDetails,
     setUserDetails
   } = useUserContext();
-  const showToast = message => {
+  const showToast = (message) => {
     ToastAndroid.show(message, ToastAndroid.SHORT);
   };
 
@@ -34,7 +34,7 @@ const AccountDetails = () => {
         style={{
           flex: 1,
           paddingHorizontal: padding,
-          gap: 20,
+          gap: 30,
           paddingVertical: 20
         }}
       >
@@ -44,16 +44,18 @@ const AccountDetails = () => {
             color: whiteColor.default
           }}
         >
-          Personal Information
+          Fill in your Information
         </Text>
         <FormInputField
           placeholderTextColor={whiteColor.opacity600}
           value={userDetails.name}
-          onChangeText={name => {
+          onChangeText={(name) => {
             setUserDetails({ ...userDetails, name });
           }}
           placeholder="Your name"
           inputStyle={{
+            borderWidth: 0,
+            borderBottomWidth: 1,
             borderColor: primaryColor.default,
             color: whiteColor.default
           }}
@@ -62,33 +64,29 @@ const AccountDetails = () => {
           value={userDetails.email}
           inputMode="email"
           keyboardType="email-address"
-          onChangeText={email => {
+          onChangeText={(email) => {
             setUserDetails({ ...userDetails, email });
           }}
           placeholderTextColor={whiteColor.opacity600}
           placeholder="Your email"
           inputStyle={{
+            borderWidth: 0,
+            borderBottomWidth: 1,
             borderColor: primaryColor.default,
             color: whiteColor.default
           }}
         />
-        <Text
-          style={{
-            fontFamily: poppins.bold.default,
-            color: whiteColor.default
-          }}
-        >
-          Bank Details
-        </Text>
 
         <FormInputField
           value={accountDetails.accountName}
-          onChangeText={accountName => {
+          onChangeText={(accountName) => {
             setAccountDetails({ ...accountDetails, accountName });
           }}
           placeholderTextColor={whiteColor.opacity600}
           placeholder="Account Name"
           inputStyle={{
+            borderWidth: 0,
+            borderBottomWidth: 1,
             borderColor: primaryColor.default,
             color: whiteColor.default
           }}
@@ -97,7 +95,7 @@ const AccountDetails = () => {
           value={accountDetails.accountNumber}
           inputMode="numeric"
           keyboardType="number-pad"
-          onChangeText={accountNumber => {
+          onChangeText={(accountNumber) => {
             setAccountDetails({ ...accountDetails, accountNumber });
           }}
           placeholderTextColor={whiteColor.opacity600}
@@ -109,6 +107,8 @@ const AccountDetails = () => {
           }
           placeholder="Account Number"
           inputStyle={{
+            borderWidth: 0,
+            borderBottomWidth: 1,
             borderColor: primaryColor.default,
             color: whiteColor.default
           }}
@@ -116,7 +116,8 @@ const AccountDetails = () => {
         <Dropdown
           style={{
             borderColor: primaryColor.default,
-            borderWidth: 1,
+            borderWidth: 0,
+            borderBottomWidth: 1,
             paddingVertical: 7,
             paddingHorizontal: 15,
             borderRadius: 10
@@ -162,7 +163,7 @@ const AccountDetails = () => {
           searchPlaceholder="Search..."
           value={accountDetails.bankName}
           name={accountDetails.bankName}
-          onChange={item => {
+          onChange={(item) => {
             setAccountDetails({ ...accountDetails, bankName: item.name });
           }}
         />
